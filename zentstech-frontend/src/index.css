@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-white dark:bg-gradient-to-br dark:from-primary dark:to-secondary text-lightText dark:text-text transition-colors duration-300;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white dark:bg-primary transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accentDark;
+}
+
+/* Utility classes */
+.glass {
+  @apply bg-white dark:bg-secondary/60 dark:backdrop-blur-[10px] border border-gray-200 dark:border-accent/10 transition-colors duration-300;
+}
+
+.glass::backdrop {
+  @apply backdrop-blur-[10px];
+}
+
+.glow-text {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-text:hover {
+  filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.6));
+}
+
+.glow-border {
+  border: 1px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(135deg, #2563eb, #06b6d4) border-box;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glow-border {
+  background: linear-gradient(#1a1f3a, #1a1f3a) padding-box,
+              linear-gradient(135deg, #2563eb, #06b6d4) border-box;
+}
+
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Premium hero title hover effect */
+.hero-title-container {
+  @apply relative transition-all duration-500 ease-out;
+}
+
+.hero-title-container:hover {
+  @apply scale-105 -translate-y-2;
+}
+
+.hero-title {
+  @apply text-6xl md:text-7xl lg:text-8xl font-bold leading-tight transition-all duration-500 ease-out tracking-tight;
+}
+
+.hero-title-main {
+  @apply block mb-4 bg-gradient-to-r from-lightText to-lightTextMuted dark:from-white dark:to-accentLight bg-clip-text text-transparent transition-all duration-500;
+}
+
+.hero-title-container:hover .hero-title-main {
+  @apply bg-gradient-to-r from-accent to-accentLight;
+}
+
+.hero-title-sub {
+  @apply block bg-gradient-to-r from-accent via-accentLight to-accent bg-clip-text text-transparent transition-all duration-500;
+}
+
+.hero-title-container:hover .hero-title-sub {
+  @apply drop-shadow-2xl shadow-glowXl;
+}
+
+/* Light mode specific styles */
+.light body {
+  @apply bg-white text-lightText;
+}
+
+/* Dark mode specific glass effect */
+.dark .glass {
+  background: rgba(26, 31, 58, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hero animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.6);
+  }
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Glow effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(37, 99, 235, 0.3),
+               0 0 20px rgba(37, 99, 235, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 20px rgba(37, 99, 235, 0.6),
+               0 0 40px rgba(37, 99, 235, 0.4);
+}
+
+.text-glow-lg {
+  text-shadow: 0 0 20px rgba(37, 99, 235, 0.5),
+               0 0 40px rgba(37, 99, 235, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-glow-lg:hover {
+  text-shadow: 0 0 30px rgba(37, 99, 235, 0.8),
+               0 0 60px rgba(37, 99, 235, 0.5);
+}
+
+/* Button glow animation */
+.btn-glow {
+  position: relative;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.6);
+  transform: translateY(-4px);
+}
+
+/* Focus styles */
+input:focus,
+textarea:focus,
+button:focus {
+  @apply outline-none;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-accent text-white;
+}
+
+.dark ::selection {
+  @apply bg-accent text-white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    @apply text-4xl md:text-5xl;
+  }
+
+  /* Disable hover effects on mobile */
+  .hero-title-container {
+    @apply hover:scale-100 hover:translate-y-0;
+  }
+}
+
+/* Smooth transitions for all elements */
+button,
+a {
+  @apply smooth-transition;
+}
+
+/* Premium heading animations */
+h1, h2, h3, h4, h5, h6 {
+  @apply transition-all duration-500;
+}
+
+/* Scroll margin for fixed headers */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Hide scrollbar while keeping functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
