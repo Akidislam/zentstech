@@ -1,5 +1,6 @@
 import Hero from '../components/Hero'
 import Features from '../components/Features'
+import ProjectShowcase from '../components/ProjectShowcase'
 import Testimonials from '../components/Testimonials'
 import CTA from '../components/CTA'
 import ServiceCard from '../components/ServiceCard'
@@ -91,7 +92,8 @@ export default function Home() {
         </div>
       </section>
 
-      <Features />
+  <ProjectShowcase />
+  <Features />
       <Testimonials />
       <CTA />
     </div>
